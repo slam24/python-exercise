@@ -1,4 +1,5 @@
 from models import *
+from classes import *
 
 def AddPersons(persons):
     i = 0
@@ -26,3 +27,23 @@ def showList(nodo):
         print (nodo)
         # ahora nodo apunta a nodo.prox
         nodo = nodo.prox
+
+def Results(nodo):
+    """ Recorre todos los nodos a través de sus enlaces,
+        mostrando sus contenidos. """
+
+    # cicla mientras nodo no es None
+    i = 0
+    q = Queue()
+    while nodo:
+        # muestra el dato
+        if nodo:
+            if str(nodo.gender) == str(1):
+                print("Hombre")
+            else:
+                print("Mujer")
+                q.encolar(nodo)
+        # ahora nodo apunta a nodo.prox
+        nodo = nodo.prox
+
+    print(q.get()[0].index_mass())

@@ -8,3 +8,7 @@ class Person(object):
 
     def __str__(self):
         return "Usuario Nº "+str(self.id)+" -> [ Sexo: "+self.gender+ " Peso: "+self.height+" Altura: "+self.weight+" ]"
+
+    def index_mass(self):
+    	return self.height+":)"
+

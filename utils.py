@@ -7,6 +7,7 @@ def init_menu():
     print ("1. Ingresar el numero de personas a entrevistar")
     print ("2. Ingresar personas")
     print ("3. Listar personas")
+    print ("4. Resultados de las mujeres")
     print ("5. Exit")
     print (67 * "-")
 

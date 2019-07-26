@@ -1,5 +1,5 @@
 from utils import init_menu
-from functions import AddPersons, showList
+from functions import AddPersons, showList, womanResults
 
 def main():
 	##Init function 
@@ -24,7 +24,7 @@ def main():
 			else:
 				print("Debe ingresar personas")
 		elif choice==4:
-			print ("Menu 4 has been selected")
+			womanResults(Personas)
 		elif choice==5:
 			loop=False
 		else:
