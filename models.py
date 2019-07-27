@@ -7,8 +7,7 @@ class Person(object):
         self.prox   = prox
 
     def __str__(self):
-        return "Usuario Nº "+str(self.id)+" -> [ Sexo: "+self.gender+ " Peso: "+self.height+" Altura: "+self.weight+" ]"
+        return "Usuario Nº "+str(self.id)+" -> [ Sexo: "+self.gender+ " Peso: "+self.weight+" Altura: "+self.height+" ]"
 
     def index_mass(self):
-    	return self.height+":)"
-
+        return float(float(self.weight)/(float(self.height)** 2))

@@ -8,7 +8,8 @@ def init_menu():
     print ("2. Ingresar personas")
     print ("3. Listar personas")
     print ("4. Resultados de las mujeres")
-    print ("5. Exit")
+    print ("5. Resultados de los hombres")
+    print ("6. Exit")
     print (67 * "-")
 
 def clearConsole(clear = None):
