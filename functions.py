@@ -1,5 +1,6 @@
 from models import *
 from classes import *
+from dic import *
 
 def AddPersons(persons):
     i = 0
@@ -47,15 +48,28 @@ def Results(nodo, gender):
 
     for person in q.get():
         if person.index_mass() < 18.50:
-            INFRA_PESO += INFRA_PESO
+            INFRA_PESO += 1
         elif person.index_mass() > 18.50 and person.index_mass() < 24.99:
-            PESO_NORMAL += PESO_NORMAL
+            PESO_NORMAL += 1
         elif person.index_mass() >= 25 and person.index_mass() < 30:
-            SOBRE_PESO += SOBRE_PESO
+            SOBRE_PESO += 1
         else:
-            OBESO += OBESO
+            OBESO += 1
 
-    print(q.len())
+    if q.len() == 0:
+        print("No existen registros del genero "+gender_a[str(gender)])
+    else:
+        print("Registros totales de personas del genero "+gender_a[str(gender)]+": "+str(q.len()))
+        print("Porcentaje de "+gender_b[str(gender)]+" con infra peso: "+str((float(INFRA_PESO)/q.len())*100)+"%")
+        print("Porcentaje de "+gender_b[str(gender)]+" con peso normal: "+str((float(PESO_NORMAL)/q.len())*100)+"%")
+        print("Porcentaje de "+gender_b[str(gender)]+" con sobre peso: "+str((float(SOBRE_PESO)/q.len())*100)+"%")
+        print("Porcentaje de "+gender_b[str(gender)]+" obesas: "+str((float(OBESO)/q.len())*100)+"%")
+
+    """print("toal        : ", q.len() * 100 * ".")
+    print("infra peso  : ", int(float(INFRA_PESO/q.len()) * 100) * ".")
+    print("peso normal : ", int(float(PESO_NORMAL/q.len()) * 100) * ".")
+    print("sobre peso  : ", int(float(SOBRE_PESO/q.len()) * 100) * ".")
+    print("obeso       : ", int(float(OBESO/q.len()) * 100) * ".")"""
 
 
 
