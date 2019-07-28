@@ -7,14 +7,14 @@ def AddPersons(persons):
     p = None
     while i != persons:
         gender = input("Ingrese el genero de la persona Nº"+str(i+1)+" :")
-        old = input("Ingrese la edad de la persona Nº"+str(i+1)+" :")
+        age = input("Ingrese la edad de la persona Nº"+str(i+1)+" :")
         height = input("Ingrese la altura de la persona Nº"+str(i+1)+" :")
         weight = input("Ingrese el peso de la persona Nº"+str(i+1)+" :")
 
         if i == 0:
-            p = Person((i+1), gender, old, height, weight)
+            p = Person((i+1), gender, age, height, weight)
         else:
-            p = Person((i+1), gender, old, height, weight, p)
+            p = Person((i+1), gender, age, height, weight, p)
 
         i = i + 1
     return p
@@ -24,16 +24,16 @@ def showList(nodo):
         print (nodo)
         nodo = nodo.prox
 
-def setRangeOld():
-    old = {"old1": 0, "old2": 150}
+def setRangeAge():
+    age = {"age1": 0, "age2": 150}
 
     aux = input("Desea ingresar rango de edades (y/n):").lower()
 
     if aux == "y":
-        old["old1"] = input("Ingrese el minimo de edad de las persona a valorar:")
-        old["old2"] = input("Ingrese el maximo de edad de las persona a valorar:")
+        age["age1"] = input("Ingrese el minimo de edad de las persona a valorar:")
+        age["age2"] = input("Ingrese el maximo de edad de las persona a valorar:")
 
-    return old
+    return age
 
 def validatePerson(Personas):
     if Personas:
@@ -42,7 +42,7 @@ def validatePerson(Personas):
         print("Debe ingresar personas")
         return False
 
-def Results(nodo, old, gender = 0):
+def Results(nodo, age, gender = 0):
     INFRA_PESO  = 0
     PESO_NORMAL = 0
     SOBRE_PESO  = 0
@@ -51,7 +51,7 @@ def Results(nodo, old, gender = 0):
     q = Queue()
     while nodo:
         if nodo:
-            if (int(nodo.old)-1) > int(old["old1"]) and int(nodo.old) < (int(old["old2"]+1)):
+            if (int(nodo.age)-1) > int(age["age1"]) and int(nodo.age) < (int(age["age2"]+1)):
                 if gender == 0:
                     q.add(nodo)
                 else:
