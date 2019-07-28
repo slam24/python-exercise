@@ -1,8 +1,10 @@
 from models import *
 from classes import *
 from dic import *
+from utils import clearConsole
 
 def AddPersons(persons):
+    clearConsole()
     i = 0
     p = None
     while i != persons:
@@ -20,6 +22,7 @@ def AddPersons(persons):
     return p
 
 def showList(nodo):
+    clearConsole()
     while nodo:
         print (nodo)
         nodo = nodo.prox
@@ -48,10 +51,11 @@ def Results(nodo, age, gender = 0):
     SOBRE_PESO  = 0
     OBESO       = 0
 
+    clearConsole()
     q = Queue()
     while nodo:
         if nodo:
-            if (int(nodo.age)-1) > int(age["age1"]) and int(nodo.age) < (int(age["age2"]+1)):
+            if int(nodo.age) > (int(age["age1"])-1) and int(nodo.age) < (int(age["age2"])+1):
                 if gender == 0:
                     q.add(nodo)
                 else:
@@ -72,7 +76,7 @@ def Results(nodo, age, gender = 0):
     if q.len() == 0:
         print("No existen registros "+gender_a[str(gender)]+" o no se encuentra en el rango de edad establecido")
     else:
-        print("Registros totales de personas "+gender_a[str(gender)]+": "+str(q.len()))
+        print("Registros totales de personas "+gender_a[str(gender)]+": "+str(q.len())+" entre la edad de "+str(age["age1"])+" y "+str(age["age2"]))
         print("Porcentaje de "+gender_b[str(gender)]+" con infra peso: "+str((float(INFRA_PESO)/q.len())*100)+"%")
         print("Porcentaje de "+gender_b[str(gender)]+" con peso normal: "+str((float(PESO_NORMAL)/q.len())*100)+"%")
         print("Porcentaje de "+gender_b[str(gender)]+" con sobre peso: "+str((float(SOBRE_PESO)/q.len())*100)+"%")

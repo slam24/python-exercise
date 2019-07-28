@@ -2,7 +2,6 @@ import platform
 import os
 
 def init_menu():
-    ##clearConsole()
     print (30 * "-" , "MENU" , 30 * "-")
     print ("1. Ingresar el numero de personas a entrevistar")
     print ("2. Ingresar personas")
