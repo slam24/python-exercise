@@ -4,16 +4,25 @@ from functions import AddPersons, showList, Results, validatePerson, setRangeAge
 def main():
     Numero_de_personas_a_entrevistar = 0
     Personas = None
-    loop=True
+    loop = True
+    choice = 0
     clearConsole()
 
     while loop:
         init_menu()
-        choice = int(input("Enter your choice [1-5]: "))
+        try:
+            choice = int(input("Enter your choice [1-5]: "))
+        except Exception as e:
+            print("Ingrese los datos correctamente")
+            print("*Debe ingresar un valor númerico")
 
         if choice==1:
             clearConsole()
-            Numero_de_personas_a_entrevistar = int(input("Ingrese la cantidad de personas a ingresar: "))
+            try:
+                Numero_de_personas_a_entrevistar = int(input("Ingrese la cantidad de personas a ingresar: "))
+            except Exception as e:
+                print("Ingrese los datos correctamente")
+                print("*El número de personas debe ser un valor númerico entero")
         elif choice==2:
             if Numero_de_personas_a_entrevistar > 0 :
                 Personas = AddPersons(Numero_de_personas_a_entrevistar)
@@ -30,5 +39,5 @@ def main():
         elif choice==7:
             loop=False
         else:
-            input("Opcion incorrecta")
+            print("Opcion incorrecta")
 main()

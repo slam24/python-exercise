@@ -8,17 +8,28 @@ def AddPersons(persons):
     i = 0
     p = None
     while i != persons:
-        gender = input("Ingrese el genero de la persona Nº"+str(i+1)+" :")
-        age = input("Ingrese la edad de la persona Nº"+str(i+1)+" :")
-        height = input("Ingrese la altura de la persona Nº"+str(i+1)+" :")
-        weight = input("Ingrese el peso de la persona Nº"+str(i+1)+" :")
 
-        if i == 0:
-            p = Person((i+1), gender, age, height, weight)
-        else:
-            p = Person((i+1), gender, age, height, weight, p)
+        try:
+            gender = int(input("Ingrese el genero de la persona Nº"+str(i+1)+" (1 -> Masculino / 2 -> Femenino):"))
+            if gender != 1 and gender != 2 :
+                gender = 1
 
-        i = i + 1
+            age = int(input("Ingrese la edad de la persona Nº"+str(i+1)+" :"))
+            height = float(input("Ingrese la altura de la persona Nº"+str(i+1)+" :"))
+            weight = float(input("Ingrese el peso de la persona Nº"+str(i+1)+" :"))
+
+            if i == 0:
+                p = Person((i+1), gender, age, height, weight)
+            else:
+                p = Person((i+1), gender, age, height, weight, p)
+
+            i = i + 1
+        except Exception as e:
+            print("Ingrese los datos correctamente")
+            print("*El genero debe ser un número entero")
+            print("*El edad debe ser un número entero")
+            print("*La altura y el peso deben ser un númericas")
+
     return p
 
 def showList(nodo):
@@ -33,8 +44,12 @@ def setRangeAge():
     aux = input("Desea ingresar rango de edades (y/n):").lower()
 
     if aux == "y":
-        age["age1"] = input("Ingrese el minimo de edad de las persona a valorar:")
-        age["age2"] = input("Ingrese el maximo de edad de las persona a valorar:")
+        try:
+            age["age1"] = int(input("Ingrese el minimo de edad de las persona a valorar:"))
+            age["age2"] = int(input("Ingrese el maximo de edad de las persona a valorar:"))
+        except Exception as e:
+            print("Ingrese los datos correctamente")
+            print("*Los rango de edades deben ser numeros enteros")
 
     return age
 
