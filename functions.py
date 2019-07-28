@@ -96,3 +96,17 @@ def Results(nodo, age, gender = 0):
         print("Porcentaje de "+gender_b[str(gender)]+" con peso normal: "+str((float(PESO_NORMAL)/q.len())*100)+"%")
         print("Porcentaje de "+gender_b[str(gender)]+" con sobre peso: "+str((float(SOBRE_PESO)/q.len())*100)+"%")
         print("Porcentaje de "+gender_b[str(gender)]+" obesas: "+str((float(OBESO)/q.len())*100)+"%")
+
+def sederFake():
+    i = 0
+    p = None
+
+    for data in dataFake:
+        if i == 0:
+            p = Person((i+1), data["gender"], data["age"], data["height"], data["weight"])
+        else:
+            p = Person((i+1), data["gender"], data["age"], data["height"], data["weight"], p)
+        i = i + 1
+
+    print("Datos almacenados")
+    return p

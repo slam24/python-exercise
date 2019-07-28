@@ -1,5 +1,5 @@
 from utils import init_menu, clearConsole
-from functions import AddPersons, showList, Results, validatePerson, setRangeAge
+from functions import AddPersons, showList, Results, validatePerson, setRangeAge, sederFake
 
 def main():
     Numero_de_personas_a_entrevistar = 0
@@ -37,6 +37,8 @@ def main():
         elif choice==6:
             if validatePerson: Results(Personas, setRangeAge())
         elif choice==7:
+            Personas = sederFake()
+        elif choice==8:
             loop=False
         else:
             print("Opcion incorrecta")
