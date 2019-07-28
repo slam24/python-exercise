@@ -1,8 +1,7 @@
 from utils import init_menu
-from functions import AddPersons, showList, Results
+from functions import AddPersons, showList, Results, validatePerson, setRangeOld
 
 def main():
-    ##Init function 
     Numero_de_personas_a_entrevistar = 0
     Personas = None
     loop=True
@@ -19,15 +18,14 @@ def main():
             else:
                 print("Debe ingresar la cantidad de personas a entrevistar")
         elif choice==3:
-            if Personas:
-                print(showList(Personas))
-            else:
-                print("Debe ingresar personas")
+            if validatePerson: print(showList(Personas))
         elif choice==4:
-            Results(Personas, 2)
+            if validatePerson: Results(Personas, setRangeOld(), 2)
         elif choice==5:
-            Results(Personas, 1)
+            if validatePerson: Results(Personas, setRangeOld(), 1)
         elif choice==6:
+            if validatePerson: Results(Personas, setRangeOld())
+        elif choice==7:
             loop=False
         else:
             input("Opcion incorrecta")
