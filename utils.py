@@ -9,7 +9,7 @@ def init_menu():
     print ("4. Resultados de las mujeres")
     print ("5. Resultados de los hombres")
     print ("6. Resultados de todo el grupo")
-    print ("7. Ingresar datos estaticos")
+    print ("7. Ingresar datos estáticos")
     print ("8. Exit")
     print (67 * "-")
 

@@ -27,8 +27,8 @@ def AddPersons(persons):
         except Exception as e:
             print("Ingrese los datos correctamente")
             print("*El genero debe ser un número entero")
-            print("*El edad debe ser un número entero")
-            print("*La altura y el peso deben ser un númericas")
+            print("*La edad debe ser un número entero")
+            print("*La altura y el peso deben ser númericos")
 
     return p
 
@@ -45,8 +45,8 @@ def setRangeAge():
 
     if aux == "y":
         try:
-            age["age1"] = int(input("Ingrese el minimo de edad de las persona a valorar:"))
-            age["age2"] = int(input("Ingrese el maximo de edad de las persona a valorar:"))
+            age["age1"] = int(input("Ingrese el mínimo de edad de las persona a valorar:"))
+            age["age2"] = int(input("Ingrese el máximo de edad de las persona a valorar:"))
         except Exception as e:
             print("Ingrese los datos correctamente")
             print("*Los rango de edades deben ser numeros enteros")
@@ -95,7 +95,7 @@ def Results(nodo, age, gender = 0):
         print("Porcentaje de "+gender_b[str(gender)]+" con infra peso: "+str((float(INFRA_PESO)/q.len())*100)+"%")
         print("Porcentaje de "+gender_b[str(gender)]+" con peso normal: "+str((float(PESO_NORMAL)/q.len())*100)+"%")
         print("Porcentaje de "+gender_b[str(gender)]+" con sobre peso: "+str((float(SOBRE_PESO)/q.len())*100)+"%")
-        print("Porcentaje de "+gender_b[str(gender)]+" obesas: "+str((float(OBESO)/q.len())*100)+"%")
+        print("Porcentaje de "+gender_b[str(gender)]+" obes@s: "+str((float(OBESO)/q.len())*100)+"%")
 
 def sederFake():
     i = 0
